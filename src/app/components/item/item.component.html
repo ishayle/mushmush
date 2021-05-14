@@ -1,0 +1,45 @@
+<form class="app-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>פריט</mat-label>
+    <input type="text"
+           aria-label="פריט"
+           matInput
+           [(ngModel)]="item.name"
+           name="itemName"
+           (input)="getProduct()"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of productsFiltered" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="number"
+           placeholder="כמות"
+           aria-label="כמות"
+           matInput
+          [(ngModel)]="item.amount"
+          name="itemAmount"
+           >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>ספק</mat-label>
+    <input type="text"
+           aria-label="Number"
+           matInput
+           [(ngModel)]="item.dealer"
+           (input)="getDealer()"
+           name="itemDealer"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of dealersFiltered" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-icon-button (click)="removeItem.emit(item)" color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+</form>

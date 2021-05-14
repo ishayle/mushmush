@@ -1,0 +1,11 @@
+.new-order-new-item {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.items-list {
+  display: flex;
+}
+.app-form {
+  display: flex;
+}

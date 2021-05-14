@@ -1,0 +1,16 @@
+<div>{{currentOrder?.id}}</div>
+<div *ngIf="currentOrder">
+  <div>
+    <div *ngFor="let item of currentOrder?.items;let i=index">
+      <div class="items-list">
+        <app-item [item]="item" (removeItem)="removeItem(i)"></app-item>
+      </div>
+    </div>
+  </div>
+  <div class="new-order-new-item">
+    <button *ngIf="currentOrder" (click)="newItem()">+</button>
+  </div>
+  <button *ngIf="currentOrder" (click)="closeOrder()">סגור </button>
+  <button *ngIf="currentOrder" (click)="sendOrder()">שלח</button>
+  <button *ngIf="currentOrder" (click)="saveOrder()">שמור</button>
+</div>

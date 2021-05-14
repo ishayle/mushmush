@@ -1,0 +1,14 @@
+<div class="app-main">
+  <div class="app-body">
+    <app-new-order [hidden]="!showNew"></app-new-order>
+    <app-order-list [hidden]="!showOrderList"></app-order-list>
+    <app-product-list [hidden]="!showproductList"></app-product-list>
+    <app-dealer-list [hidden]="!showdealerList"></app-dealer-list>
+  </div>
+  <div class="app-footer">
+    <div class="nav-button new-order-nav" (click)="showNewScreen()">new</div>
+    <div class="nav-button order-list-nav" (click)="showOrderListScreen()">list</div>
+    <div class="nav-button product-list-nav" (click)="showproductListScreen()">product</div>
+    <div class="nav-button dealer-list-nav" (click)="showdealerListScreen()">dealer</div>
+  </div>
+</div>
