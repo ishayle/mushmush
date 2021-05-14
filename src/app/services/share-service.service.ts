@@ -9,7 +9,6 @@ export class ShareService {
 
   shareOrder(order: Order) {
     const doc = new jsPDF();
-    doc.setFont('Amiri');
     doc.autoTable(
       ['פריט', 'כמות', 'ספק'],
       order.items.map(i => [i.name, i.amount, i.dealer])
