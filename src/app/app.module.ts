@@ -14,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { DealerListComponent } from './components/dealer-list/dealer-list.component';
-import { ShareService } from './services/share-service.service';
+import { ShareService } from './services/share.service';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   imports: [
@@ -37,6 +38,6 @@ import { ShareService } from './services/share-service.service';
     DealerListComponent
   ],
   bootstrap: [AppComponent],
-  providers: [ShareService]
+  providers: [ShareService, StorageService]
 })
 export class AppModule {}

@@ -15,7 +15,6 @@ export class OrderListComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
   ngOnInit() {
     this.store.subscribe(state => {
-      console.log(this.orders);
       this.orders = state.orders;
     });
   }

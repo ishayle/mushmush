@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import { Item } from '../../model/item';
 import { Order } from '../../model/order';
-import { ShareService } from '../../services/share-service.service';
+import { ShareService } from '../../services/share.service';
 
 @Component({
   selector: 'app-new-order',
