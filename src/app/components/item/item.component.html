@@ -7,8 +7,8 @@
            [(ngModel)]="item.name"
            name="itemName"
            (input)="getProduct()"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
+           [matAutocomplete]="auto1">
+    <mat-autocomplete #auto1="matAutocomplete">
       <mat-option *ngFor="let  product of productsFiltered" [value]=" product">
         {{ product}}
       </mat-option>
@@ -31,8 +31,8 @@
            [(ngModel)]="item.dealer"
            (input)="getDealer()"
            name="itemDealer"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
+           [matAutocomplete]="auto2">
+    <mat-autocomplete #auto2="matAutocomplete">
       <mat-option *ngFor="let dealer of dealersFiltered" [value]="dealer">
         {{dealer}}
       </mat-option>
