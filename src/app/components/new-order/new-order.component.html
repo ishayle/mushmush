@@ -8,9 +8,10 @@
     </div>
   </div>
   <div class="new-order-new-item">
-    <button *ngIf="currentOrder" (click)="newItem()">+</button>
+    <mat-icon style="font-size: 20px" (click)="newItem()">add_circle</mat-icon>
+
   </div>
-  <button *ngIf="currentOrder" (click)="closeOrder()">סגור </button>
-  <button *ngIf="currentOrder" (click)="sendOrder()">שלח</button>
-  <button *ngIf="currentOrder" (click)="saveOrder()">שמור</button>
+  <mat-icon *ngIf="currentOrder" style="font-size: 20px" (click)="closeOrder()">close</mat-icon>
+  <mat-icon *ngIf="currentOrder" style="font-size: 20px" (click)="sendOrder()">share</mat-icon>
+  <mat-icon *ngIf="currentOrder" style="font-size: 20px" (click)="saveOrder()">save</mat-icon>
 </div>

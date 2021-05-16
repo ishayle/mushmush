@@ -20,5 +20,7 @@
   flex: 0 50%;
   height: 35px;
   border: 1px solid;
-  background-color: blanchedalmond;
+  background-color: rgb(80, 80, 80);
+  display: flex;
+  justify-content: center;
 }

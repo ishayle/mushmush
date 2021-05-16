@@ -38,8 +38,5 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button mat-icon-button (click)="removeItem.emit(item)" color="warn" aria-label="Example icon button with a heart icon">
-        <mat-icon>remove</mat-icon>
-      </button>
-
+  <mat-icon style="font-size: 20px" (click)="removeItem.emit(item)">remove_circle</mat-icon>
 </form>
