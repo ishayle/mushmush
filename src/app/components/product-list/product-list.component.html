@@ -1,6 +1,9 @@
 <div>
   list:
   <div *ngFor="let product of products">
-    <div>{{product}}</div>
+    <div class="product-list">
+      <mat-icon style="font-size: 20px">remove_circle</mat-icon>
+      <div>{{product}}</div>
+    </div>
   </div>
 </div>

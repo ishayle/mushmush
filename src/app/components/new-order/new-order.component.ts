@@ -39,14 +39,18 @@ export class NewOrderComponent implements OnInit {
       payload: this.currentOrder
     });
     this.currentOrder.items.forEach(item => {
-      this.store.dispatch({
-        type: 'ADD_PRODUCT',
-        payload: item.name
-      });
-      this.store.dispatch({
-        type: 'ADD_DEALER',
-        payload: item.dealer
-      });
+      if (item.name) {
+        this.store.dispatch({
+          type: 'ADD_PRODUCT',
+          payload: item.name
+        });
+      }
+      if (item.dealer) {
+        this.store.dispatch({
+          type: 'ADD_DEALER',
+          payload: item.dealer
+        });
+      }
     });
   }
   saveOrder() {
