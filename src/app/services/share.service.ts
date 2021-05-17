@@ -19,6 +19,14 @@ export class ShareService {
       body: order.items.map(i => [i.name, i.amount, i.dealer]),
       styles: { font: 'MyFont' }
     });
-    doc.save('table.pdf');
+    var blob = doc.output('bloburl');
+    //window.open(URL.createObjectURL(blob));
+    navigator.share({
+      text: order.id + '.pdf',
+      title: order.id + '.pdf',
+      url: blob.href
+    });
+
+    //doc.save(order.id + '.pdf');
   }
 }
