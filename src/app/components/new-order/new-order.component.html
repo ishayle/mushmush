@@ -9,15 +9,14 @@
   </div>
 
   <div class="new-order-actions">
-    <div class="new-order-new-item">
       <mat-icon class="order-actions" (click)="newItem()">add_circle</mat-icon>
 
-    </div>
-    <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="closeOrder()">close
-    </mat-icon>
     <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="sendOrder()">share
     </mat-icon>
-    <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="saveOrder()">save
+    <!-- <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="closeOrder()">close
     </mat-icon>
+
+    <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="saveOrder()">save
+    </mat-icon> -->
   </div>
 </div>
