@@ -6,7 +6,7 @@ export const SET_DEALERS = 'SET_DEALERS';
 export function dealerReducer(state: string[] = [], action) {
   switch (action.type) {
     case ADD_DEALER:
-      if (!state.indexOf(action.payload)) return state;
+      if (state.indexOf(action.payload)>0) return state;
       else return [...state, action.payload];
     case SET_DEALERS:
       return action.payload;

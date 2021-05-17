@@ -54,7 +54,6 @@ export class NewOrderComponent implements OnInit {
     });
   }
   saveOrder() {
-    this.editing = true;
     this.store.dispatch({
       type: 'ADD_ORDER',
       payload: this.currentOrder
@@ -80,6 +79,16 @@ export class NewOrderComponent implements OnInit {
   }
 
   sendOrder() {
+    this.currentOrder.items.forEach(item => {
+      this.store.dispatch({
+        type: 'ADD_PRODUCT',
+        payload: item.name
+      });
+      this.store.dispatch({
+        type: 'ADD_DEALER',
+        payload: item.dealer
+      });
+    });
     this.shareService.shareOrder(this.currentOrder);
   }
 }

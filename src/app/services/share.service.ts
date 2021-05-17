@@ -21,7 +21,7 @@ export class ShareService {
     });
     var blob = doc.output('blob');
     window.open(URL.createObjectURL(blob));
-    
+
     //doc.save(order.id + '.pdf');
   }
 }
