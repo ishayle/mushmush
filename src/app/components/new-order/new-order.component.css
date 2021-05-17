@@ -1,11 +1,14 @@
 .new-order-new-item {
   display: flex;
-  width: 100%;
-  justify-content: center;
+  width: 99%;
 }
 .items-list {
   display: flex;
 }
 .app-form {
   display: flex;
+}
+.order-actions {
+  font-size: 40px;
+  margin: 10px;
 }
