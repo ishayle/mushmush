@@ -56,7 +56,7 @@ export class NewOrderComponent implements OnInit {
   saveOrder() {
     this.store.dispatch({
       type: 'ADD_ORDER',
-      payload: this.currentOrder
+      payload: Object.assign({}, this.currentOrder)
     });
     this.currentOrder.items.forEach(item => {
       this.store.dispatch({
@@ -79,16 +79,7 @@ export class NewOrderComponent implements OnInit {
   }
 
   sendOrder() {
-    this.currentOrder.items.forEach(item => {
-      this.store.dispatch({
-        type: 'ADD_PRODUCT',
-        payload: item.name
-      });
-      this.store.dispatch({
-        type: 'ADD_DEALER',
-        payload: item.dealer
-      });
-    });
-    this.shareService.shareOrder(this.currentOrder);
+    this.saveOrder();
+    this.shareService.shareOrder(Object.assign({}, this.currentOrder));
   }
 }

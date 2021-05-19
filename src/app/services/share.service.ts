@@ -14,9 +14,36 @@ export class ShareService {
     doc.addFont('MyFont.ttf', 'MyFont', 'normal');
     doc.setFont('MyFont');
     doc.setR2L(true);
+    doc.text(
+      order.time
+        .toLocaleDateString()
+        .split('')
+        .reverse()
+        .join(''),
+      doc.canvas.width / 2,
+      20
+    );
     autoTable(doc, {
-      head: [['פריט', 'כמות', 'ספק']],
-      body: order.items.map(i => [i.name, i.amount, i.dealer]),
+      margin: { top: 30 },
+      head: [['ספק', 'כמות', 'פריט']],
+      body: order.items.map(i => [
+        i.dealer,
+        i.amount
+          .toString()
+          .split('')
+          .reverse()
+          .join(''),
+        i.name
+      ]),
+      showHead: 'everyPage',
+      headStyles: {
+        valign: 'middle',
+        halign: 'center'
+      },
+      bodyStyles: {
+        valign: 'middle',
+        halign: 'center'
+      },
       styles: { font: 'MyFont' }
     });
     //var blob = doc.output('bloburi');
