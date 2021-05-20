@@ -26,15 +26,19 @@ export class ShareService {
     autoTable(doc, {
       margin: { top: 30 },
       head: [['ספק', 'כמות', 'פריט']],
-      body: order.items.map(i => [
-        i.dealer,
-        i.amount
-          .toString()
-          .split('')
-          .reverse()
-          .join(''),
-        i.name
-      ]),
+      body: order.items
+        .filter(
+          i => i.amount !== null && i.amount !== undefined && i.amount > 0
+        )
+        .map(i => [
+          i.dealer,
+          i.amount
+            .toString()
+            .split('')
+            .reverse()
+            .join(''),
+          i.name
+        ]),
       showHead: 'everyPage',
       headStyles: {
         valign: 'middle',

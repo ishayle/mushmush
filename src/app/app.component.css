@@ -4,7 +4,7 @@
 .app-main {
   display: flex;
   flex-direction: column;
-  height: 99%;
+  height: 100%;
   width: 100%;
 }
 .app-body {
@@ -19,8 +19,15 @@
 }
 .nav-button {
   flex: 0 50%;
-  height: 42px;
-  background-color: rgb(0, 124, 155);
-  display: flex;
-  justify-content: center;
+  background-color: #22223b;
+  color: #f6f4f4;
+  display: inline-flex;
+  align-items: center;
+  height: 75px;
+  padding: 0px 10px;
+  border: 1px solid #4a4e69;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.nav-button mat-icon {
 }
