@@ -1,9 +1,9 @@
 <div>
   list:
   <div *ngFor="let order of orders">
-     <div class="order-item">
-          <mat-icon>remove_circle</mat-icon>
-    <div>{{order.id}}</div>
-  </div>
+    <div class="order-item">
+      <mat-icon (click)="remove(order)">remove_circle</mat-icon>
+      <div>{{order.id}}</div>
+    </div>
   </div>
 </div>

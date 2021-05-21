@@ -4,6 +4,7 @@ import { Action } from '@ngrx/store';
 
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 export function productReducer(state: string[] = [], action) {
   switch (action.type) {
@@ -15,6 +16,9 @@ export function productReducer(state: string[] = [], action) {
       )
         return state;
       else return [...state, action.payload];
+    case REMOVE_PRODUCT:
+      const newState = state.filter(item => item !== action.payload);
+      return newState;
     case SET_PRODUCTS:
       return action.payload;
     default:

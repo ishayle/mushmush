@@ -8,12 +8,20 @@ import { AppState } from '../../app.state';
   styleUrls: ['./dealer-list.component.css']
 })
 export class DealerListComponent implements OnInit {
- dealers: string[];
+  dealers: string[];
 
   constructor(private store: Store<AppState>) {}
   ngOnInit() {
     this.store.subscribe(state => {
       this.dealers = state.dealerNames;
     });
+  }
+  remove(d: string) {
+    if (d) {
+      this.store.dispatch({
+        type: 'REMOVE_DEALER',
+        payload: d
+      });
+    }
   }
 }

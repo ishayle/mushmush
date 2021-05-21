@@ -16,5 +16,12 @@ products: string[];
       this.products = state.productNames;
     });
   }
-
+remove(d: string) {
+    if (d) {
+      this.store.dispatch({
+        type: 'REMOVE_PRODUCT',
+        payload: d
+      });
+    }
+  }
 }
