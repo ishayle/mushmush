@@ -10,9 +10,9 @@ import { StorageService } from './services/storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  showNew = true;
+  showNew = false;
   showOrderList = false;
-  showdealerList = false;
+  showdealerList = true;
   showproductList = false;
 
   constructor(
