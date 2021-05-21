@@ -54,11 +54,12 @@ export class NewOrderComponent implements OnInit {
     });
   }
   saveOrder() {
+    const o = Object.assign({}, this.currentOrder);
     this.store.dispatch({
       type: 'ADD_ORDER',
-      payload: Object.assign({}, this.currentOrder)
+      payload: o
     });
-    this.currentOrder.items.forEach(item => {
+    o.items.forEach(item => {
       this.store.dispatch({
         type: 'ADD_PRODUCT',
         payload: item.name
