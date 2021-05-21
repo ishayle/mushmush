@@ -29,5 +29,7 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
-.nav-button mat-icon {
+.nav-selected {
+  color: #22223b;
+  background-color: #f6f4f4;
 }
