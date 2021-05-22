@@ -4,6 +4,7 @@
     <input type="text"
            aria-label="פריט"
            matInput
+           required
            [(ngModel)]="item.name"
            name="itemName"
            (input)="getProduct()"
@@ -21,6 +22,7 @@
            matInput
           [(ngModel)]="item.amount"
           name="itemAmount"
+           required
            >
   </mat-form-field>
   <mat-form-field class="example-full-width">

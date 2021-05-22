@@ -1,4 +1,11 @@
-import { Component, VERSION, OnInit } from '@angular/core';
+import {
+  Component,
+  VERSION,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '../../app.state';
@@ -12,19 +19,22 @@ import { ShareService } from '../../services/share.service';
   styleUrls: ['./new-order.component.css']
 })
 export class NewOrderComponent implements OnInit {
-  currentOrder: Order;
-  editing = false;
+  @Input() currentOrder: Order;
+  @Input() editing = false;
+  @Output() closed = new EventEmitter<boolean>();
   constructor(
     private store: Store<AppState>,
     private shareService: ShareService
   ) {}
 
   ngOnInit() {
-    this.currentOrder = {
-      id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
-      items: [],
-      time: new Date()
-    };
+    if (!this.currentOrder) {
+      this.currentOrder = {
+        id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
+        items: [],
+        time: new Date()
+      };
+    }
   }
 
   newItem() {
@@ -54,31 +64,48 @@ export class NewOrderComponent implements OnInit {
     });
   }
   saveOrder() {
-    const newO = this.cloneOrder(this.currentOrder);
-
-    this.store.dispatch({
-      type: 'ADD_ORDER',
-      payload: newO
-    });
-
-    newO.items.forEach(item => {
-      this.store.dispatch({
-        type: 'ADD_PRODUCT',
-        payload: item.name
+    this.currentOrder.items = this.currentOrder.items.filter(i => i.name);
+      const newO = this.cloneOrder(this.currentOrder);
+    if (this.currentOrder.items.length) {
+      newO.items.forEach(item => {
+        this.store.dispatch({
+          type: 'ADD_PRODUCT',
+          payload: item.name
+        });
+        this.store.dispatch({
+          type: 'ADD_DEALER',
+          payload: item.dealer
+        });
       });
-      this.store.dispatch({
-        type: 'ADD_DEALER',
-        payload: item.dealer
+    }
+    if (this.editing) {
+       this.store.dispatch({
+        type: 'UPDATE_ORDER',
+        payload: newO
       });
-    });
+      this.closed.emit();
+    } else {
+       this.store.dispatch({
+        type: 'ADD_ORDER',
+        payload: newO
+      });
+      this.currentOrder = {
+        id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
+        items: [],
+        time: new Date()
+      };
+    }
   }
   closeOrder() {
-    this.saveOrder();
-    this.currentOrder = {
-      id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
-      items: [],
-      time: new Date()
-    };
+    if (this.editing) {
+      this.closed.emit();
+    } else {
+      this.currentOrder = {
+        id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
+        items: [],
+        time: new Date()
+      };
+    }
   }
 
   sendOrder() {

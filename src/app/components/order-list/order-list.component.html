@@ -1,8 +1,14 @@
 <div>
-  <div *ngFor="let order of orders">
-    <div class="order-item">
-      <mat-icon (click)="remove(order)">remove_circle</mat-icon>
-      <div>{{order.id}}</div>
+  <div *ngIf="!editing">
+    <div *ngFor="let order of orders">
+      <div class="order-item">
+        <mat-icon (click)="remove(order)">remove_circle</mat-icon>
+        <div>{{order.id}}</div>
+        <mat-icon (click)="edit(order)">edit</mat-icon>
+      </div>
     </div>
+  </div>
+  <div *ngIf="editing">
+    <app-new-order [editing]="true" [currentOrder]="current" (closed)="editing=false"></app-new-order>
   </div>
 </div>
