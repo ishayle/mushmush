@@ -54,12 +54,14 @@ export class NewOrderComponent implements OnInit {
     });
   }
   saveOrder() {
-    const o = Object.assign({}, this.currentOrder);
+    const newO = this.cloneOrder(this.currentOrder);
+
     this.store.dispatch({
       type: 'ADD_ORDER',
-      payload: o
+      payload: newO
     });
-    o.items.forEach(item => {
+
+    newO.items.forEach(item => {
       this.store.dispatch({
         type: 'ADD_PRODUCT',
         payload: item.name
@@ -80,7 +82,16 @@ export class NewOrderComponent implements OnInit {
   }
 
   sendOrder() {
+    const newO = this.cloneOrder(this.currentOrder);
     this.saveOrder();
-    this.shareService.shareOrder(Object.assign({}, this.currentOrder));
+    this.shareService.shareOrder(newO);
+  }
+
+  cloneOrder(o: Order): Order {
+    return {
+      id: o.id,
+      time: o.time,
+      items: [...o.items]
+    } as Order;
   }
 }
