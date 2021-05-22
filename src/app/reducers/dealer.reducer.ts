@@ -10,7 +10,7 @@ export function dealerReducer(state: string[] = [], action) {
       if (
         action.payload === null ||
         action.payload === undefined ||
-        state.indexOf(action.payload) > 0
+        state.indexOf(action.payload) >= 0
       )
         return state;
       else return [...state, action.payload];

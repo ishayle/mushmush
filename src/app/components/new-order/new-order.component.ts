@@ -65,7 +65,7 @@ export class NewOrderComponent implements OnInit {
   }
   saveOrder() {
     this.currentOrder.items = this.currentOrder.items.filter(i => i.name);
-      const newO = this.cloneOrder(this.currentOrder);
+    const newO = this.cloneOrder(this.currentOrder);
     if (this.currentOrder.items.length) {
       newO.items.forEach(item => {
         this.store.dispatch({
@@ -79,33 +79,21 @@ export class NewOrderComponent implements OnInit {
       });
     }
     if (this.editing) {
-       this.store.dispatch({
+      this.store.dispatch({
         type: 'UPDATE_ORDER',
         payload: newO
       });
       this.closed.emit();
     } else {
-       this.store.dispatch({
+      this.store.dispatch({
         type: 'ADD_ORDER',
         payload: newO
       });
-      this.currentOrder = {
-        id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
-        items: [],
-        time: new Date()
-      };
     }
+    this.closed.emit();
   }
   closeOrder() {
-    if (this.editing) {
-      this.closed.emit();
-    } else {
-      this.currentOrder = {
-        id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
-        items: [],
-        time: new Date()
-      };
-    }
+    this.closed.emit();
   }
 
   sendOrder() {
