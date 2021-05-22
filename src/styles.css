@@ -1,5 +1,5 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-/*https://coolors.co/22223b-4a4e69-888594-c6bbbe-f6f4f4*/
+/*https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557*/
 html {
   height: 100%;
 }
@@ -7,7 +7,7 @@ html {
 body {
   height: 100%;
   width: 100%;
-  background: #f6f4f4;
+  background: #f1faee;
   margin: 0;
   padding: 0;
 }

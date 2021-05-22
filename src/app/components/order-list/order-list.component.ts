@@ -13,6 +13,7 @@ export class OrderListComponent implements OnInit {
   orders: Order[];
   current: Order;
   editing = false;
+  new = false;
 
   constructor(private store: Store<AppState>) {}
   ngOnInit() {
@@ -31,6 +32,16 @@ export class OrderListComponent implements OnInit {
         payload: d
       });
     }
+  }
+
+  create() {
+    this.current = {
+      id: `${new Date().toLocaleDateString()}_${new Date().valueOf()}`,
+      items: [{} as Item],
+      time: new Date()
+    };
+    this.editing = true;
+    this.new = true;
   }
 
   cloneOrder(o: Order): Order {

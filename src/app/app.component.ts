@@ -10,8 +10,7 @@ import { StorageService } from './services/storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  showNew = true;
-  showOrderList = false;
+  showOrderList = true;
   showdealerList = false;
   showproductList = false;
 
@@ -22,27 +21,18 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.storageService.SetStateFromStorage();
   }
-
-  showNewScreen() {
-    this.showNew = true;
-    this.showOrderList = false;
-    this.showdealerList = false;
-    this.showproductList = false;
-  }
+  
   showOrderListScreen() {
-    this.showNew = false;
     this.showOrderList = true;
     this.showdealerList = false;
     this.showproductList = false;
   }
   showproductListScreen() {
-    this.showNew = false;
     this.showOrderList = false;
     this.showdealerList = false;
     this.showproductList = true;
   }
   showdealerListScreen() {
-    this.showNew = false;
     this.showOrderList = false;
     this.showdealerList = true;
     this.showproductList = false;

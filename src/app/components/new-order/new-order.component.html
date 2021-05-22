@@ -15,11 +15,10 @@
 
     <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="sendOrder()">share
     </mat-icon>
-    <mat-icon *ngIf="editing && currentOrder && currentOrder.items.length" class="order-actions" (click)="closeOrder()">
-      close
-    </mat-icon>
-
     <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="saveOrder()">save
+    </mat-icon>
+    <mat-icon *ngIf="currentOrder && currentOrder.items.length" class="order-actions" (click)="closeOrder()">
+      close
     </mat-icon>
   </div>
 </div>

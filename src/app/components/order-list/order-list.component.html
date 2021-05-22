@@ -1,4 +1,5 @@
 <div>
+  <div class="order-item new-order" (click)="create()">צור הזמנה חדשה</div>
   <div *ngIf="!editing">
     <div *ngFor="let order of orders">
       <div class="order-item">
@@ -9,6 +10,6 @@
     </div>
   </div>
   <div *ngIf="editing">
-    <app-new-order [editing]="true" [currentOrder]="current" (closed)="editing=false"></app-new-order>
+    <app-new-order [editing]="!new" [currentOrder]="current" (closed)="new=false;editing=false"></app-new-order>
   </div>
 </div>

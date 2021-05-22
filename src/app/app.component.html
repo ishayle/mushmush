@@ -6,28 +6,21 @@
     <app-dealer-list [hidden]="!showdealerList"></app-dealer-list>
   </div>
   <div class="app-footer">
-    <div class="icon-fruit"></div>
-    <div class="nav-button new-order-nav" [class.nav-selected]="showNew"  (click)="showNewScreen()">
-      <mat-icon>add</mat-icon>
-      <div>
-        חדש
-      </div>
-    </div>
     <div class="nav-button order-list-nav" [class.nav-selected]="showOrderList" (click)="showOrderListScreen()">
       <mat-icon>storages</mat-icon>
-       <div>
+      <div>
         הזמנות
       </div>
     </div>
-    <div class="nav-button product-list-nav" [class.nav-selected]="showproductList"  (click)="showproductListScreen()">
+    <div class="nav-button product-list-nav" [class.nav-selected]="showproductList" (click)="showproductListScreen()">
       <mat-icon>spa</mat-icon>
-       <div>
+      <div>
         מוצרים
       </div>
     </div>
-    <div class="nav-button dealer-list-nav" [class.nav-selected]="showdealerList"  (click)="showdealerListScreen()">
+    <div class="nav-button dealer-list-nav" [class.nav-selected]="showdealerList" (click)="showdealerListScreen()">
       <mat-icon>account_circle</mat-icon>
-       <div>
+      <div>
         ספקים
       </div>
     </div>
