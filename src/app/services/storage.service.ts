@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
+import { Order } from '../model/order';
 
 @Injectable()
 export class StorageService {
@@ -15,6 +16,7 @@ export class StorageService {
       )
         localStorage.setItem('dataSource', JSON.stringify(state));
     });
+    
   }
 
   SetStateFromStorage() {
@@ -31,7 +33,11 @@ export class StorageService {
     });
     this.store.dispatch({
       type: 'SET_ORDERS',
-      payload: dataSource?.orders ? dataSource.orders : []
+      payload: dataSource?.orders ? dataSource.orders.map(o=> ({
+        id:o.id,
+        items: o.items,
+        time: new Date(o.time)
+      } as Order)) : []
     });
   }
 }

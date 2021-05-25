@@ -1,4 +1,19 @@
 <form class="app-form">
+    <mat-form-field class="example-full-width">
+    <mat-label>ספק</mat-label>
+    <input type="text"
+           aria-label="Number"
+           matInput
+           [(ngModel)]="item.dealer"
+           (input)="getDealer()"
+           name="itemDealer"
+           [matAutocomplete]="auto2">
+    <mat-autocomplete #auto2="matAutocomplete">
+      <mat-option *ngFor="let dealer of dealersFiltered" [value]="dealer">
+        {{dealer}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>פריט</mat-label>
     <input type="text"
@@ -25,20 +40,6 @@
            required
            >
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>ספק</mat-label>
-    <input type="text"
-           aria-label="Number"
-           matInput
-           [(ngModel)]="item.dealer"
-           (input)="getDealer()"
-           name="itemDealer"
-           [matAutocomplete]="auto2">
-    <mat-autocomplete #auto2="matAutocomplete">
-      <mat-option *ngFor="let dealer of dealersFiltered" [value]="dealer">
-        {{dealer}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+
   <mat-icon style="font-size: 20px" (click)="removeItem.emit(item)">remove_circle</mat-icon>
 </form>

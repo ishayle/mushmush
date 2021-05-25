@@ -25,19 +25,19 @@ export class ShareService {
     );
     autoTable(doc, {
       margin: { top: 30 },
-      head: [['ספק', 'כמות', 'פריט']],
+      head: [['כמות', 'פריט', 'ספק']],
       body: order.items
         .filter(
           i => i.amount !== null && i.amount !== undefined && i.amount > 0
         )
         .map(i => [
-          i.dealer,
           i.amount
             .toString()
             .split('')
             .reverse()
             .join(''),
-          i.name
+          i.name,
+          i.dealer
         ]),
       showHead: 'everyPage',
       headStyles: {
