@@ -27,11 +27,15 @@ export class ShareService {
       margin: { top: 30 },
       head: [['כמות', 'פריט', 'ספק']],
       body: order.items
-      .sort(function(a, b){
-    if(a.name < b.name) { return -1; }
-    if(a.name > b.name) { return 1; }
-    return 0;
-})
+        .sort(function(a, b) {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        })
         .filter(
           i => i.amount !== null && i.amount !== undefined && i.amount > 0
         )
