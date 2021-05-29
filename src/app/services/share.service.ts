@@ -68,7 +68,6 @@ export class ShareService {
     // });
 
     // const navigator = window.navigator as any;
-
     // if (navigator.share) {
     //   navigator
     //     .share({
@@ -79,7 +78,8 @@ export class ShareService {
     //     .then(() => console.log('Share was successful.'))
     //     .catch(error => console.log('Sharing failed', error.message));
     // }
-
-    doc.save(order.id + '.pdf');
+    var blob = doc.output('blob');
+    window.open(URL.createObjectURL(blob));
+    //doc.save(order.id + '.pdf');
   }
 }
