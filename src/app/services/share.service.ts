@@ -60,26 +60,26 @@ export class ShareService {
       styles: { font: 'MyFont' }
     });
 
-    var blobPDF = new Blob([doc.output('blob')], { type: 'application/pdf' });
-    let arrayOfBlob = new Array<Blob>();
-    arrayOfBlob.push(blobPDF);
-    let pdftoshare = new File(arrayOfBlob, order.id, {
-      type: 'application/pdf'
-    });
+    // var blobPDF = new Blob([doc.output('blob')], { type: 'application/pdf' });
+    // let arrayOfBlob = new Array<Blob>();
+    // arrayOfBlob.push(blobPDF);
+    // let pdftoshare = new File(arrayOfBlob, order.id, {
+    //   type: 'application/pdf'
+    // });
 
-    const navigator = window.navigator as any;
+    // const navigator = window.navigator as any;
 
-    if (navigator.share) {
-      navigator
-        .share({
-          files: [pdftoshare],
-          title: 'Dummy text file',
-          text: 'Some dummy text file'
-        })
-        .then(() => console.log('Share was successful.'))
-        .catch(error => console.log('Sharing failed', error.message));
-    }
+    // if (navigator.share) {
+    //   navigator
+    //     .share({
+    //       files: [pdftoshare],
+    //       title: 'Dummy text file',
+    //       text: 'Some dummy text file'
+    //     })
+    //     .then(() => console.log('Share was successful.'))
+    //     .catch(error => console.log('Sharing failed', error.message));
+    // }
 
-    //doc.save(order.id + '.pdf');
+    doc.save(order.id + '.pdf');
   }
 }
