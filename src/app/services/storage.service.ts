@@ -7,8 +7,8 @@ import { Order } from '../model/order';
 export class StorageService {
   constructor(private store: Store<AppState>) {
     this.store.subscribe(state => {
-      console.log('saving state:');
-      console.log(JSON.stringify(state));
+      // console.log('saving state:');
+      // console.log(JSON.stringify(state));
       if (
         state.dealerNames.length ||
         state.productNames.length ||
@@ -21,8 +21,8 @@ export class StorageService {
 
   SetStateFromStorage() {
     var dataSource = JSON.parse(localStorage.getItem('dataSource')) as AppState;
-    console.log('loading state:');
-    console.log(dataSource);
+    // console.log('loading state:');
+    // console.log(dataSource);
     this.store.dispatch({
       type: 'SET_PRODUCTS',
       payload: dataSource?.productNames ? dataSource.productNames : []
