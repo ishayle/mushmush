@@ -20,8 +20,8 @@ export class ShareService {
         .split('')
         .reverse()
         .join(''),
-      doc.canvas.width / 2,
-      30
+      doc.canvas.width / 2 + 20,
+      20
     );
     autoTable(doc, {
       margin: { top: 30 },
